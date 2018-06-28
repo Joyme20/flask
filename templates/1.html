@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+    <link rel="stylesheet" href="1.css" type="text/css" />
+</head>
+<body>
+<script src="jquery-3.3.1.js"></script>
+<!--<style type="text/css">-->
+    <!--#div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}-->
+<!--</style>-->
+<!--<script>-->
+    <!--function allowDrop(ev)-->
+    <!--{-->
+        <!--ev.preventDefault();-->
+    <!--}-->
+
+    <!--function drag(ev)-->
+    <!--{-->
+        <!--ev.dataTransfer.setData("Text",ev.target.id);-->
+    <!--}-->
+
+    <!--function drop(ev)-->
+    <!--{-->
+        <!--ev.preventDefault();-->
+        <!--var data=ev.dataTransfer.getData("Text");-->
+        <!--ev.target.appendChild(document.getElementById(data));-->
+    <!--}-->
+<!--</script>-->
+<!--<p>拖动图片到矩形框中:</p>-->
+
+<!--<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>-->
+<!--<br>-->
+<!--<img id="drag1" src="img/jike_1505408829460_pic.jpeg" draggable="true" ondragstart="drag(event)" height="690" width="690">-->
+<!--<p id="demo">点击按钮获取您当前坐标（可能需要比较长的时间获取）：</p>-->
+<!--<button onclick="getLocation()">点我</button>-->
+<!--<script>-->
+    <!--var x=document.getElementById("demo");-->
+    <!--function getLocation()-->
+    <!--{-->
+        <!--if (navigator.geolocation)-->
+        <!--{-->
+            <!--navigator.geolocation.getCurrentPosition(showPosition);-->
+        <!--}-->
+        <!--else-->
+        <!--{-->
+            <!--x.innerHTML="该浏览器不支持获取地理位置。";-->
+        <!--}-->
+    <!--}-->
+
+    <!--function showPosition(position)-->
+    <!--{-->
+        <!--x.innerHTML="纬度: " + position.coords.latitude +-->
+            <!--"<br>经度: " + position.coords.longitude;-->
+    <!--}-->
+<!--</script>-->
+<!--<view id="new">id = new</view>-->
+
+<!--<div id="div2"><h2>使用 jQuery AJAX 修改文本内容</h2></div>-->
+<!--<button id="a">aaaa</button>-->
+<!--<script>$(document).ready(function(){-->
+    <!--$("#a").click(function(){-->
+        <!--$("#div2").load("http://www.runoob.com/jquery/jquery-ajax-load.html");-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
+<script>
+    $(document).ready(function(){
+        $("#button2").click(function(){
+            $.post("1.txt", {
+                name:"菜鸟教程",
+                url:"http://www.runoob.com"
+            },function(data,status){
+                alert("数据: " + data + "\n状态: " + status);
+            });
+        });
+    });
+</script>
+<button id="button2">发送一个 HTTP GET 请求并获取返回结果</button>
+<!--<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>-->
+<!--<script type="text/javascript" src="1.js"></script>-->
+<!--<script src="jquery.js"></script>-->
+<!--<script src="jquery-3.3.1.js.js"></script>-->
+
+<div id="divCustomers"></div>
+<script>
+    $.getJSON("http://www.runoob.com/try/ajax/jsonp.php?jsoncallback=?", function(data) {
+
+        var html = '<ul>';
+        for(var i = 0; i < data.length; i++)
+        {
+            html += '<li>' + data[i] + '</li>';
+        }
+        html += '</ul>';
+
+        $('#divCustomers').html(html);
+    });
+</script>
+
+
+</body>
+
+</html>
